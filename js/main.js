@@ -23,6 +23,12 @@ Game.prototype.winner = function () {
   //paper > rock
   //win, lose, or tie
 
+
+///tie scenario
+ if(this.player1.move === this.player2.move) {
+  return null;
+ }
+
  //player 1 throws rock
  if(this.player1.move === "rock") {
     if(this.player2.move === "scissors")
@@ -30,16 +36,21 @@ Game.prototype.winner = function () {
         return this.player2;
  }
 
- //player 1 throws paper
-
-
-
-
-
-///tie scenario
- if(this.player1.move === this.player2.move) {
-  return null;
+ //player 1 throws scissors
+if(this.player1.move === "scissors") {
+    if(this.player2.move === "rock")
+      return this.player2;
+        return this.player1;
  }
+
+//player 1 throws paper
+ if(this.player1.move === "paper") {
+    if(this.player2.move === "rock")
+      return this.player1;
+        return this.player2;
+ }
+
+
 };
 
 
